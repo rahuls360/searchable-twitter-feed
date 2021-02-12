@@ -90,3 +90,10 @@ body {
   flex-direction: column;
   margin-top: 40px;
 }
+
+#go-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  cursor: pointer;
+}
