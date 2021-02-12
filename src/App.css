@@ -1,3 +1,35 @@
+@font-face {
+  font-family: 'Segoe UI Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Regular'),
+    url('./assets/fonts/Segoe\ UI.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Segoe UI Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Italic'),
+    url('./assets/fonts/Segoe UI Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Bold'),
+    url('./assets/fonts/Segoe UI Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Segoe UI Bold Italic'),
+    url('./assets/fonts/Segoe UI Bold Italic.woff') format('woff');
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +67,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background-color: #15202b;
+  color: white;
+  font-family: 'Segoe UI Regular';
+}
+
+.tweet-container {
+  width: 600px;
+  text-align: left;
+  white-space: pre-wrap;
+  border: 1px solid #38444d;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.tweets {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
 }
