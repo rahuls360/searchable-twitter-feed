@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { data } from './data.js';
+// import tweets from './data.json';
 import useDebounce from './hooks/useDebounce';
 import Result from './Result';
 
@@ -10,6 +10,7 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
   const [result, setResult] = useState([]);
   const [showScroll, setShowScroll] = useState(false);
+  const [data, setData] = useState([]);
   const searchString = useDebounce(searchText, 300);
 
   useEffect(() => {
@@ -25,18 +26,29 @@ const App = () => {
         setShowScroll(false);
       }
     }
+
+    fetch(
+      `https://raw.githubusercontent.com/rahuls360/searchable-twitter-feed/master/src/data.json`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setData(json.data);
+      });
     return () => {
       window.removeEventListener('scroll', scrollFunction);
     };
   }, []);
 
   useEffect(() => {
-    const newResult = data.filter(
-      (item) =>
-        item.full_text.toLowerCase().indexOf(searchString.toLowerCase()) > -1
-    );
-    console.log(newResult, 'result');
-    setResult(newResult);
+    if (data.length) {
+      const newResult = data.filter(
+        (item) =>
+          item.full_text.toLowerCase().indexOf(searchString.toLowerCase()) > -1
+      );
+      console.log(newResult, 'result');
+      setResult(newResult);
+    }
   }, [searchString]);
 
   return (
