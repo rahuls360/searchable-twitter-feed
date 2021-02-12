@@ -32,7 +32,6 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setData(json.data);
       });
     return () => {
@@ -49,7 +48,7 @@ const App = () => {
       console.log(newResult, 'result');
       setResult(newResult);
     }
-  }, [searchString]);
+  }, [searchString, data]);
 
   return (
     <div className='App'>
